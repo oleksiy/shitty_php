@@ -27,6 +27,24 @@ $seeded_random = rand(1,10);
     Modulo: <?php echo $modulo;?> <br/>
     Random: <?php echo $random;?> <br/>
     Random(max, min): <?php echo $seeded_random;?> <br/>
+    <br/>
+    += : <?php $absoluteVal+=100; echo $absoluteVal;?><br/>
+    -= : <?php $absoluteVal-=111; echo $absoluteVal;?><br/>
+    *= : <?php $absoluteVal*=2; echo $absoluteVal;?><br/>
+    /= : <?php $absoluteVal/=5; echo $absoluteVal;?><br/>
+    <br/>
+    INCREMENT (computed prior to displaying, aka prefix oper) <?php echo(++$absoluteVal);?><br/>
+    DECREMENT (same as above) <?php echo(--$absoluteVal);?><br/>
+    <br/>
+    <h3>Floating Point Numbers</h3>
+    <?php
+        $float = 3.14;
+        $integer = 7;
+    ?>
+    <?php echo("Is {$integer} integer?" . " " . is_int($integer));?><br>
+    <?php echo("Is {$float} float?" . " " . is_float($float));?><br>
+    <?php echo("Is {$integer} float?" . " " . is_float($integer));?><br>
+    <?php echo("Is {$integer} numeric?" . " " . is_numeric($integer));?><br>
 </code>
 </body>
 </html>
