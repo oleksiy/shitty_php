@@ -22,6 +22,42 @@ echo is_equal("abc", true);
 echo is_equal("123", "    123");
 echo is_equal("123", "+0123");
 ?>
+<br/>
+<?php
+$errors = array();
+$value = trim("a");
+//presence
+if(!isset($value) || !is_numeric($value)){
+    echo "Validation failed!<br/>";
+    $errors["value"] = "Value cannot be blank";
+}
+//string length
+//minimum length
+$value = "a";
+$min = 3;
+if(strlen($value) < $min){
+    echo "Validation failed.<br/>";
+    $errors["string"] = "Value has to be longer than 3 characters";
+}
+
+//max length
+$max = 6;
+if(strlen($value) > $max){
+    echo "Validation failed.<br/>";
+}
+
+if(!empty($errors)){
+    echo "<div class=\"error\">";
+    echo "Please fix the following errors:";
+    echo "<ul>";
+    foreach($errors as $key => $error){
+        echo "<li>{$error}</li>";
+    }
+    echo "</ul>";
+    echo "</div>";
+}
+
+?>
 
 <?php include_once("homebutton.php");?>
 </body>
