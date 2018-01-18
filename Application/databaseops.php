@@ -1,5 +1,5 @@
 <?php
-    require_once("../homebutton.php");
+
 
     //Database Connection
     $dbhost = "127.0.0.1";
@@ -47,22 +47,40 @@
 <h1>Updating Record</h1>
 <?php
     //Update Query
-    $id = 5;
+    /*
+    $id = 6;
     $menu_name = "Delete me";
     $position = 4;
-    $visible = 1;
+    $visible = 0;
 
-    $query = "UPDATE subjects SET menu_name='{$menu_name}', position = {$position}, visible = {$visible}, WHERE id={id}";
+    $query = "UPDATE subjects SET menu_name='{$menu_name}', position = {$position}, visible = {$visible} WHERE id={$id}";
     $result = mysqli_query($connection, $query);
-    if ($result) {
+    if ($result && mysqli_affected_rows($connection) === 1) {
         echo("Record updated!");
     } else {
-        die("Database query failed. " . mysqli_error($connection));
+        die("Database update query failed. " . mysqli_error($connection));
     }
+    */
 
+?>
+<h1>Deleting Record</h1>
+<?php
+    //Deleting a record
+    /*
+    $id=4;
+
+    $query = "DELETE FROM subjects WHERE id={$id} LIMIT 1";
+    $result = mysqli_query($connection, $query);
+    if ($result && mysqli_affected_rows($connection) === 1) {
+        echo("Record deleted!");
+    } else {
+        die("Database delete query failed. " . mysqli_error($connection));
+    }
+    */
 ?>
 </body>
 </html>
 <?php
     mysqli_close($connection);
+    require_once("../homebutton.php");
 ?>
