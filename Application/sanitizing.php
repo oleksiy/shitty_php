@@ -26,7 +26,11 @@ if(mysqli_connect_errno()) {
     $position = 4;
     $visible = 1;
     $menu_name = mysqli_escape_string($connection, $menu_name);
-    echo $menu_name;
+    echo $menu_name . "</br>";
+
+    $username = "tobias";
+    $password = "fünke$$$";
+    $query = "SELECT * from users WHERE username = ? AND password = ?";
 
 ?>
 </body>
