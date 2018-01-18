@@ -33,21 +33,24 @@ if(!$result){
     <title>Scratch Connection to DB</title>
 </head>
 <body>
-<pre>
+<ul>
 <?php
 //Step 3: Use returned data (if any)
 //output data from each row
 while($row = mysqli_fetch_assoc($result)){
     //output data from each row
     //var_dump($row); // raw dump
-    echo $row["id"] . "<br/>";
+    /*echo $row["id"] . "<br/>";
     echo $row["menu_name"] . "<br/>";
     echo $row["position"] . "<br/>";
     echo $row["visible"] . "<br/>";
-    echo "<hr/>";
+    echo "<hr/>";*/
+    ?>
+    <li><?php echo $row["menu_name"] . " -> " . $row["id"];?></li>
+    <?php
 }
 ?>
-</pre>>
+</ul>
 <?php
 //Step 4: Release returned data
 mysqli_free_result($result);
