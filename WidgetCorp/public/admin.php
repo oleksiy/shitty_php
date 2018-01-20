@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Widget Corp</title>
     <link href="stylesheets/public.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="favicon.ico?" type="image/x-icon" rel="shortcut icon"/>
 </head>
 <body>
 <div id="header">
