@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Widget Corp</title>
-</head>
-<body>
+<?php include("../includes/layouts/header.php");?>
+<?php require_once("../includes/functions.php");?>
+<div id="main">
+    <div id="navigation">
+        &nbsp;
+    </div>
+    <div id="page">
+        <h2>Manage Content</h2>
 
-</body>
-</html>
+    </div>
+</div>
+<?php include("../includes/layouts/footer.php");?>

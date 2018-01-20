@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Widget Corp</title>
-    <link href="stylesheets/public.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="favicon.ico?" type="image/x-icon" rel="shortcut icon"/>
-</head>
-<body>
-<div id="header">
-    <h1>Widget Corp</h1>
-</div>
+<?php include("../includes/layouts/header.php");?>
+<?php require_once("../includes/functions.php");?>
 <div id="main">
     <div id="navigation">
         &nbsp;
@@ -23,7 +13,5 @@
             <li><a href="logout.php">Logout</a></li>
         </ul>
     </div>
-    <div id="footer">Copyright 2018, Widget Corp</div>
 </div>
-</body>
-</html>
+<?php include("../includes/layouts/footer.php");?>
