@@ -9,15 +9,37 @@
             $query .= "FROM subjects ";
             $query .= "WHERE visible = 1 ";
             $query .= "ORDER BY position ASC";
-
+            //process result
             $result = mysqli_query($connection, $query);
             //Test for SQL syntax errors
             confirm_query($result);
             ?>
             <?php // output query results
-            while($subject = mysqli_fetch_assoc($result)) {?>
+            while($subject = mysqli_fetch_assoc($result)) {
+                ?>
                 <li>
-                    <?php echo $subject["menu_name"] . " (" . $subject["id"] . ") ";?>
+                    <?php echo $subject["menu_name"];?>
+                    <?php //run a query
+                    $query  = "SELECT * ";
+                    $query .= "FROM pages ";
+                    $query .= "WHERE visible = 1 ";
+                    $query .= "AND subject_id = {$subject["id"]} ";
+                    $query .= "ORDER BY position ASC";
+                    //process result
+                    $page_set = mysqli_query($connection, $query);
+                    //Test for SQL syntax errors
+                    confirm_query($page_set);
+                    ?>
+                    <ul class="pages">
+                        <?php // output query results
+                        while($page = mysqli_fetch_assoc($page_set)) {
+                            ?>
+                            <li><?php echo $page["menu_name"]; ?></li>
+                            <?php
+                        }
+                        ?>
+                        <?php mysqli_free_result($page_set);?>
+                    </ul>
                 </li>
                 <?php
             }
