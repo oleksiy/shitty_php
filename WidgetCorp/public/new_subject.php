@@ -10,6 +10,8 @@
     <div id="page">
         <?php
             echo message();
+            $errors = errors();
+            echo form_errors($errors);
         ?>
 
         <h2>Create Subject</h2>
