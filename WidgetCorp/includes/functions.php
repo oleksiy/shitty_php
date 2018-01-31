@@ -17,11 +17,13 @@ function confirm_query($result_set){
     }
 }
 
-function find_all_subjects(){
+function find_all_subjects($public=true){
     global $connection;
     $query  = "SELECT * ";
     $query .= "FROM subjects ";
-    //$query .= "WHERE visible = 1 ";
+    if($public) {
+        $query .= "WHERE visible = 1 ";
+    }
     $query .= "ORDER BY position ASC";
     //process result
     $subject_set = mysqli_query($connection, $query);
@@ -29,14 +31,14 @@ function find_all_subjects(){
     return $subject_set;
 }
 
-function find_pages_for_subject($subject_id){
+function find_pages_for_subject($subject_id, $public=true){
     global $connection;
     $safe_subject_id = mysqli_real_escape_string($connection, $subject_id);
 
     $query  = "SELECT * ";
     $query .= "FROM pages ";
-    $query .= "WHERE visible = 1 ";
-    $query .= "AND subject_id = {$safe_subject_id} ";
+    $query .= "WHERE subject_id = {$safe_subject_id} ";
+    if ($public) { $query .= "AND visible = 1 ";}
     $query .= "ORDER BY position ASC";
     //process result
     $page_set = mysqli_query($connection, $query);
@@ -101,7 +103,7 @@ function find_selected_page(){
 //2 args, current subject array or null, current page id array or null
 function navigation($subject_array, $page_array) {
     $output = "<ul class=\"subjects\">";
-    $subject_set = find_all_subjects();
+    $subject_set = find_all_subjects(false);
     // output query results
     while($subject = mysqli_fetch_assoc($subject_set)) {
         $output .="<li ";
@@ -149,7 +151,7 @@ function navigation($subject_array, $page_array) {
 
 function public_navigation($subject_array, $page_array) {
     $output = "<ul class=\"subjects\">";
-    $subject_set = find_all_subjects();
+    $subject_set = find_all_subjects(true);
     // output query results
     while($subject = mysqli_fetch_assoc($subject_set)) {
         $output .="<li ";
