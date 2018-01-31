@@ -4,7 +4,7 @@ require_once("../includes/db_connection.php");
 require_once("../includes/functions.php");
 
 
-$current_subject = find_subject_by_id($_GET["subject"]);
+$current_subject = find_subject_by_id($_GET["subject"], false);
 if(!$current_subject){
     //Subject ID is missing or invalid
     //Subject cannot be found in the database

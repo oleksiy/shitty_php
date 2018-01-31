@@ -11,9 +11,10 @@
     </div>
     <div id="page">
         <?php if ($current_page) {?>
-                <?php echo htmlentities($current_page["content"]);?><br/>
+            <h2><?php echo htmlentities($current_page["menu_name"]);?></h2><br/>
+                <?php echo nl2br(htmlentities($current_page["content"]));?><br/>
         <?php } else {?>
-            Please select a subject or a page.
+            <p>Welcome!</p>
         <?php }?>
     </div>
 </div>
